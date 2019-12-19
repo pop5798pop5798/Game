@@ -1,0 +1,374 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Lottery Numbers Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+    <link rel="stylesheet" href="assets/blueprint-css/prettify.css">
+	<script src="assets/js/prettify.js" defer></script>
+    <script>
+	window.onload = (function(){ prettyPrint(); });
+	</script>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;Lottery Numbers&rdquo; Documentation by &ldquo;demonisblack&rdquo; v1.6</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;Lottery Numbers&rdquo;</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 8/12/2017<br>
+					By: demonisblack<br>
+					Email: <a href="mailto:demonisblack@gmail.com">demonisblack@gmail.com</a>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing my game. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form <a href="http://codecanyon.net/user/demonisblack">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+        	<li><a href="#introduction">Introduction</a></li>
+            <li><a href="#gettingStarted">Getting Started</a></li>
+            <li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+            <li><a href="#gameFunctions">Game Functions</a></li>
+            <li><a href="#gameAssets">Game Assets</a></li>
+            <li><a href="#compatibility">Compatibility</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+            <li><a href="#changelog">Changelog</a></li>
+		</ol>
+		
+		<hr>
+        
+        <h3 id="introduction"><strong>A) Introduction</strong> - <a href="#toc">top</a></h3>
+        <p>Lottery Numbers is a HTML5 game which player choosing the numbered tickets and giving prizes to the holders of numbers drawn at random.</p>
+        
+        <p>The ZIP package contains the game with 1280×768 resolution that scales to fit the whole screen device, but it may not be perfectly full screen.</p>
+        
+        <p>
+        <strong>How To Play:</strong><br>
+        1) Select 6 numbers and click start to begin<br/><br/>
+        <img src="assets/images/feature1.jpg" /><br/>
+        <img src="assets/images/feature2.jpg" /><br/>
+        </p>
+        
+        <hr>
+        
+        <h3 id="gettingStarted"><strong>B) Getting Started</strong> - <a href="#toc">top</a></h3>
+		<p>To install the game just upload folder 'game' to your server. The game won't run locally with some browser like Chrome due to some security mode.</p>        
+        <p>You need a website that runs PHP to make facebook share button work, and make sure to change Facebook Open Graph meta and Twitter meta in index.html, just replace [GAME_URL] to your game URL.</p>
+        <pre class="prettyprint linenums">
+        &lt;!-- for Facebook --&gt;
+        &lt;meta property=&quot;og:image&quot; content=&quot;[GAME_URL]/share.jpg&quot; /&gt;
+        &lt;meta property=&quot;og:url&quot; content=&quot;[GAME_URL]&quot; /&gt;
+        
+        &lt;!-- for Twitter --&gt;
+        &lt;meta name=&quot;twitter:image&quot; content=&quot;[GAME_URL]/share.jpg&quot; /&gt;
+        </pre>
+        
+        <p>You can easily customize game text and settings in game.js file
+        
+        <pre class="prettyprint linenums">
+        var selectTextDisplay = 'Select [NUMBER] Numbers'; //select number text display
+        var ballRadius = 60; //ball radius
+        var totalBall = 36; //total balls
+        var rotateBall = true; //rotate balls in 3d angle
+        
+        var spinDirection = true; //true for anticlockwise
+        var spinStartSpeed = 5; //spin starting speed
+        var spinEndSpeed = 5; //spin starting speed
+        var spinSpeed = 10; //spin speed
+        var revealTimer = 6; //reveal ball timer
+        
+        var prizeTableDisplay = 'Score Table'; //score table text display
+        var numberTextDisplay = 'Your Numbers'; //your score text display
+        var matchTextDisplay = 'MATCH [NUMBER]'; //match text display
+        var scoreTextDisplay = '[NUMBER]PTS'; //prize score text display
+        
+        var score_arr = [50,100,500,1000,10000,100000]; //score points array
+        
+        var bonusBall = true; //toggle bonus ball
+        var bonusTextDisplay = 'MATCH [NUMBER] + BONUS'; //match bonus text display
+        var bonusScore = [50000]; //bonus score point
+        
+        var exitMessage = 'ARE YOUR SURE\nYOU WANT TO QUIT THE GAME?'; //go to main page message
+        var resultCompleteText = 'YOU WON [NUMBER]PTS!'; //result complete text display
+        var resultFailText = 'YOU DIDN\'T WIN!';  //result fail text display
+        
+        //Social share, [SCORE] will replace with game score
+        var shareEnable = true; //toggle share
+        var shareText = 'SHARE THIS GAME'; //social share message
+        var shareTitle = 'Highscore on Lottery Numbers Game is [SCORE]PTS.';//social share score title
+        var shareMessage = '[SCORE]PTS is mine new highscore on Lottery Numbers Game! Try it now!'; //social share score message
+        </pre>
+        
+        <h4><strong>To set lottery numbers result:</strong></h4>
+      	Set the numbers in <strong>gameData.revealArray</strong> array like below inside startGame() function, array number start from 0.<br/>
+		*Note the array must set before startSpin() function, which is the start button event. 
+		<pre class="prettyprint linenums">
+        gameData.revealArray = [12,25,10,3,5,15];
+        </pre>
+        
+        <p>
+        The sound can be easily disabled to avoid compatibility issues in sound.js file:
+        <pre class="prettyprint linenums">
+        var enableMobileSound = true;
+        </pre>
+        </p>
+        
+        <p>
+        The mobile rotate instruction can be easily change in mobile.js file:
+        <pre class="prettyprint linenums">
+        var rotateInstruction = true; //enable rotate instruction for mobile
+        var forPortrait=false; //for portrait only, set false for landscape mode
+        </pre>
+        </p>
+        <hr>
+		
+		<h3 id="htmlStructure"><strong>C) HTML Structure</strong> - <a href="#toc">top</a></h3>
+        <p>The page start with the loader wrapper that covering the whole screen in the body. It shows loader progress when calls the function <strong>initPreload()</strong></p>
+        <pre class="prettyprint linenums">
+        &lt;!-- PERCENT LOADER START--&gt;
+    	&#x3C;div id=&#x22;mainLoader&#x22;&#x3E;&#x3C;img src=&#x22;assets/loader.png&#x22; /&#x3E;&#x3C;br&#x3E;&#x3C;span&#x3E;0&#x3C;/span&#x3E;&#x3C;/div&#x3E;
+        &lt;!-- PERCENT LOADER END--&gt;
+        </pre>
+        
+        <p>This section is for browser not support page when calls the function <strong>checkBrowser()</strong>. It shows error message when detect the browser does not support canvas.</p>
+        <pre class="prettyprint linenums">
+        &lt;!-- BROWSER NOT SUPPORT START--&gt;
+        &lt;div id=&quot;notSupportHolder&quot;&gt;
+            &lt;div class=&quot;notSupport&quot;&gt;YOUR BROWSER ISN&#39;T SUPPORTED.&lt;br/&gt;PLEASE UPDATE YOUR BROWSER IN ORDER TO RUN THE GAME&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- BROWSER NOT SUPPORT END--&gt;
+        </pre>
+        
+        <p>Device rotate instruction page when calls the function <strong>checkMobileOrientation()</strong>. It shows rotate instruction when device is in portrait view.</p>
+        <pre class="prettyprint linenums">
+        &lt;!-- ROTATE INSTRUCTION START--&gt;
+        &lt;div id=&quot;rotateHolder&quot;&gt;
+            &lt;div class=&quot;mobileRotate&quot;&gt;
+                    &lt;div class=&quot;rotateDesc&quot;&gt;ROTATE YOUR DEVICE &lt;br/&gt;TO LANDSCAPE&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;!-- ROTATE INSTRUCTION END--&gt;
+        </pre>
+        
+        <p>Follow by one canvas tag in the body. The game start initiatie by calls the main function of the game <strong>initMain()</strong>.</p>
+        <pre class="prettyprint linenums">
+        &lt;!-- CANVAS START--&gt;
+        &lt;div id=&quot;canvasHolder&quot;&gt;
+            &lt;canvas id=&quot;gameCanvas&quot; width=&quot;1280&quot; height=&quot;768&quot;&gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+        &lt;!-- CANVAS END--&gt;
+        </pre>
+		<hr>
+
+		<h3 id="cssFiles"><strong>D) CSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+		<p>I'm using two CSS files in this game. The first one is a generic reset file. Many browser interpret the default behavior of html elements differently. By using a general reset CSS file, we can work round this. This file also contains some general styling, such as anchor tag colors, font-sizes, etc. Keep in mind, that these values might be overridden somewhere else in the file.</p>
+		<p>The second file contains all of the specific stylings for the page.</p>
+        <hr>
+		
+        
+		<h3 id="javascript"><strong>E) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This game using Javascript files below.</p>
+		
+		<ol>
+			<li>
+                <strong>jQuery</strong> is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML.<br/><br/>
+            </li>
+            
+            <li>
+                <strong>Detect Mobile Browser</strong> is a open source scripts to detect mobile browsers and phones.<br/><br/>
+            </li>
+            
+            <li>
+                <strong>CreateJs plugin</strong> is a suite of modular libraries and tools which work together to create interactive content on open web technologies via HTML5.<br/><br/>
+            </li>
+            
+            <li>
+                <strong>TweenMax</strong> is an extremely fast, lightweight, and flexible animation tool that serves as the foundation of the GreenSock Animation Platform (GSAP).<br/><br/>
+            </li>
+            
+            <li>
+                <strong>The game have the following js files</strong>
+                <ul>
+                	<li><strong>init.js :</strong> check if browser or device support <br/><br/></li>
+                    <li><strong>loader.js :</strong> loader to load all game images<br/><br/></li>
+                    <li><strong>main.js :</strong> initiate game setup and browser resize function<br/><br/></li>
+                    <li><strong>mobile.js :</strong> mobile orientation change<br/><br/></li>
+                    <li><strong>canvas.js :</strong> canvas setup and resize<br/><br/></li>
+                    <li><strong>sound.js :</strong> sound event<br/><br/></li>
+                    <li><strong>game.js :</strong> game play and logics<br/><br/></li>
+                    <li><strong>plugins.js :</strong> additonal useful plugins<br/><br/></li>
+                </ul>
+            </li>
+		</ol>
+        
+        <p>Complete game flow:</p>
+		<ol>
+        	<li>The index.html file start init.js for browser detection</li>
+            <li>If browser is supported, init loader.js to start load asserts with loading progress</li>
+            <li>For mobile the rotate instruction shows when device is in portrait view, detect by mobile.js</li>
+            <li>When all asserts contained in "/assets" folder are loaded, the game start construct canvas.js and main.js from game.js thats shows game menu</li>
+            <li>If user click start button in game menu, the game will start game with game.js</li>
+            <li>User have to select 6 numbers to start spin, alternative they can click Feeling Lucky to auto select numbers</li>
+            <li>If user match the numbers, user will score base on the score table</li>
+            <li>If user click continue button at game result, it will go to menu page</li>
+        </ol>
+		
+		<hr>
+        
+        <h3 id="gameFunctions"><strong>F) Game Functions</strong> - <a href="#toc">top</a></h3>
+		
+		<p>The most important functions used for page.</p>
+        <ul>
+        	<li>
+                <strong>checkBrowser()</strong><br/>
+                This function is runs for browser detection<br/><br/>
+            </li>
+            
+            <li>
+                <strong>checkMobileEvent()</strong><br/>
+                This function runs for mobile event<br/><br/>
+            </li>
+        </ul>
+        
+        <p>The most important functions used for game.</p>
+        <ul>
+        	<li>
+                <strong>initMain()</strong><br/>
+                This function build canvas<br/><br/>
+            </li>
+            
+            <li>
+                <strong>startGame()</strong><br/>
+                This function start gameplay<br/><br/>
+            </li>
+            
+            <li>
+                <strong>stopGame()</strong><br/>
+                This function stop gameplay<br/><br/>
+            </li>
+            
+            <li>
+                <strong>saveGame()</strong><br/>
+                This function save game score<br/><br/>
+            </li>
+        </ul>
+		<hr>
+        
+        <h3 id="gameAssets"><strong>H) Game Assets</strong> - <a href="#toc">top</a></h3>
+        <p>The game contain 'design' folder which include following:
+        <ol>
+        	<li>lotterynumbers_1280x768.psd - with layer folders below
+                <ul>
+                <li>Option</li>
+                <li>Result</li>
+                <li>Game</li>
+                <li>Landing</li>
+                <li>Background</li>
+                </ul>
+        	</li>
+        </ol>
+        </p>
+        </p>
+        
+        <p>The folder 'assets' in 'game' folder contains all the images of the game that can be replaced. Is better to have the same size of the old ones if you want to reskin the game graphic without coding.</p>
+        <hr>
+        
+        <h3 id="compatibility"><strong>I) Compatibility</strong> - <a href="#top">top</a></h3>
+		
+		<p>This game is build for Desktop browsers that support HTML5 canvas. Any mobile/tablet should work in landscape view, but they are not officially supported.</p>
+		<hr>
+		
+		<h3 id="credits"><strong>J) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>I've used the following font and sound files as listed.</p>
+		
+		<ul>
+			<li><a href="https://www.dafont.com/quantify.font" target="_blank">Quantify</a> from file Senhikari</li>
+            <li><a href="https://www.freepik.com/free-vector/green-bingo-background-with-golden-coins_1146864.htm" target="_blank">
+Green bingo background with golden coins</a> from file freepik</li>
+            
+            <li><a href="https://freesound.org/people/GameAudio/sounds/220171/" target="_blank">Flourish Spacey 1</a> from file GameAudio</li>
+            <li><a href="https://freesound.org/people/Mativve/sounds/391539/" target="_blank">Electro win sound</a> from file Mativve</li>
+            <li><a href="https://freesound.org/people/Andromadax24/sounds/186719/" target="_blank">Chime_01.wav</a> from file Andromadax24</li>
+            <li><a href="https://freesound.org/people/Caitlin_100/sounds/365535/" target="_blank">Snooker & pool balls.mp3</a> from file Caitlin_100</li>
+            
+            <li><a href="https://freesound.org/people/Soughtaftersounds/sounds/145459/" target="_blank">Menu Click-Sparkle</a> from file Soughtaftersounds</li>
+            <li><a href="https://freesound.org/people/joedeshon/sounds/81151/" target="_blank">suck_pop_02.wav</a> from file joedeshon</li>
+            <li><a href="https://freesound.org/people/elmasmalo1/sounds/350841/" target="_blank"> Level-Up Sound FX</a> from file elmasmalo1</li>
+            <li><a href="https://freesound.org/people/deadsillyrabbit/sounds/251390/" target="_blank"> Button_Hover (mp3).mp3</a> from file deadsillyrabbit</li>
+            
+		</ul>
+		
+		<hr>
+        
+        <h3 id="changelog"><strong>K) Changelog</strong> - <a href="#toc">top</a></h3>
+
+		Version 1.6
+		<ul>
+			<li>Compatible with Membership and Payment System add-on</li>
+		</ul>
+        
+        Version 1.5
+		<ul>
+			<li>Option to set ball number start from zero</li>
+		</ul>
+        
+		Version 1.4
+		<ul>
+			<li>Fixed audio not playing in Chrome browser</li>
+		</ul>
+
+        Version 1.3
+		<ul>
+        	<li>Fixed no extra ball result</li>
+		</ul>
+        
+        Version 1.2
+		<ul>
+        	<li>Added option to set fixed result</li>
+		</ul>
+        
+        Version 1.1
+		<ul>
+        	<li>Added option to rotate balls in 3D</li>
+            <li>Added option add bonus balls</li>
+            <li>Added timer option for drum</li>
+        	<li>Fixed balls missing</li>
+		</ul>
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this game. As I said at the beginning, I'd be glad to help you if you have any questions relating to this game. No guarantees, but I'll do my best to assist. If you have a more general question relating to the games on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.</p> 		<p>If you like my game, please take a moment to rate it. Thanks!   <img src="assets/images/rate.png" /><img src="assets/images/rate.png" /><img src="assets/images/rate.png" /><img src="assets/images/rate.png" /><img src="assets/images/rate.png" /></p>
+		
+		<p class="append-bottom alt large"><strong>demonisblack</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PersistableFontDetails xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Letterset>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,;:?!-_~#"'&amp;()[]|`\/@°+=*$£€&lt;&gt;%你的最高分數剩餘時間到開始加速第二階段三四獲得魚骨幣警告確定要退出遊戲此場總結束太棒了超過目前記錄嘿貓咪們準備好獵殺這些老鼠嗎請在內點擊畫面上和任何金將設翻轉成直向獎勵無法是否再玩一次扣除及每日打群中途跳視為失敗</Letterset>
+  <AdjustHeight>1</AdjustHeight>
+  <AdjustWidth>1</AdjustWidth>
+  <SampleText>分數</SampleText>
+  <ShiftHorz>1</ShiftHorz>
+  <ShiftVert>1</ShiftVert>
+  <ShowGrid>true</ShowGrid>
+  <ShowBoundary>false</ShowBoundary>
+  <Size>55</Size>
+  <StrikeOut>false</StrikeOut>
+  <Underline>false</Underline>
+  <IsFill>true</IsFill>
+  <IsOutlineOne>true</IsOutlineOne>
+  <IsOutlineTwo>false</IsOutlineTwo>
+  <IsShadow>false</IsShadow>
+  <OutlineOneWidth>3</OutlineOneWidth>
+  <OutlineTwoWidth>2</OutlineTwoWidth>
+  <ShadowWidth>1</ShadowWidth>
+  <ShadowOffsetX>4</ShadowOffsetX>
+  <ShadowOffsetY>4</ShadowOffsetY>
+  <FontStyleDisplayName>Bold</FontStyleDisplayName>
+  <Height>70</Height>
+  <Width>66</Width>
+  <FontFamilyName>微软雅黑</FontFamilyName>
+  <FontStyleName>Normal</FontStyleName>
+  <FontStretchName>Normal</FontStretchName>
+  <FontWeightName>Bold</FontWeightName>
+  <FillColourName>#FFF5AA25</FillColourName>
+  <OutlineOneColourName>#FF741B00</OutlineOneColourName>
+  <OutlineTwoColourName>#FFFF0000</OutlineTwoColourName>
+  <ShadowColourName>#80F5AA25</ShadowColourName>
+  <SampleBackgroundColourName>#FFFFFFFF</SampleBackgroundColourName>
+</PersistableFontDetails>

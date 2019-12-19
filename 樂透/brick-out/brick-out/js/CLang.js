@@ -1,0 +1,21 @@
+TEXT_SCORE = "分數";
+TEXT_SCORE_GAMEOVER = "總分";
+TEXT_LEVEL = "關卡";
+TEXT_LEVEL_UPPERCASE = "關卡";
+TEXT_COMPLETE = "完成";
+TEXT_CONGRATULATIONS = "All levels completed... Congratulations!";
+TEXT_HELP_PAGE_1_PC = "使用滑鼠移動發射器接住彈力球 在不掉落情況下摧毀所有磚塊。 任何掉落的物品有可能幫助你 得到更多分數";
+TEXT_HELP_PAGE_1_MOBILE = "Swipe the paddle to bounce the ball and destroy all the bricks! Grab any falling power-ups to get more points!";
+TEXT_DEVELOPED = "DEVELOPED BY";
+var TEXT_CONFIRM_CLEAR_SAVINGS = "ALL YOUR SAVINGS WILL BE DELETED.ARE YOU SURE?";
+var TEXT_ARE_SURE = "ARE YOU SURE?";
+var TEXT_PRELOADER_CONTINUE = "開始遊戲";
+var TEXT_ERR_LS = "YOUR WEB BROWSER DOES NOT SUPPORT STORING SETTING LOCALLY. IN SAFARI, THE MOST COMMON CAUSE OF THIS IS USING 'PRIVATE BROWSING MODE'. SOME INFO MAY NOT SAVE OR SOME FEATURE MAY NOT WORK PROPERLY.";
+
+TEXT_SHARE_IMAGE = "200x200.jpg";
+TEXT_SHARE_TITLE = "恭喜!";
+TEXT_SHARE_MSG1 = "你獲得了 <strong>";
+TEXT_SHARE_MSG2 = " 分</strong>!<br><br>是否要和你朋友分享喜悅!";
+TEXT_SHARE_SHARE1 = "我的分數是 ";
+TEXT_SHARE_SHARE2 = " points! Can you do better";
+TEXT_FISH_GAMEOVER = "魚骨幣";
